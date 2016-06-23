@@ -1,0 +1,33 @@
+body {
+    color: red;
+}
+.cpd-count {
+    .wrap {
+        color: black;
+        font-size: 80px;
+        display: inline-block;
+
+        &:first-child {
+            border-right: 1px solid #ccc;
+            padding-right: 15px;
+            margin-right: 20px;
+        }
+
+        .num {
+            font-family: "Roboto", sans-serif;
+            font-size: 1em;
+            font-weight: 600;
+        }
+        .time {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.4em;
+            font-weight: 700;
+            text-transform: uppercase;
+            display: inline-block;
+            position: relative;
+            right: 0.5em;
+            top: -1.12em;
+        }
+    }
+}
+/*# sourceMappingURL=style.css.map */
