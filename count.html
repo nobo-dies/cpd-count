@@ -9,18 +9,50 @@
     <link rel="stylesheet" href="css/style.css" media="screen" charset="utf-8">
 </head>
 
-<body>
-    <div class="cpd-count">
-        <span class="wrap">
-            <span class="num">06</span>
-            <span class="time">h</span>
-        </span>
-        <span class="wrap">
-            <span class="num">30</span>
-            <span class="time">m</span>
-        </span>
+<div class="dashboard-header">
+    <div class="row">
+        <div class="small-12 columns">
+
+            <div class="profile-wrap">
+                <span class="avatar large round" 
+                      data-reveal-id="upload-profile-modal" 
+                      back-img="{{user.profilePicURL?user.profilePicURL:(user.avatarURL?user.avatarURL:'images/Profile-Pic_Male.png')}}">
+                </span>
+                <span class="text">
+                    <h3>{{user.fullName}}</h3>
+                    <p><a href="">View Profile</a></p>
+                </span>
+            </div>
+
+            <div class="cpd-wrap" ng-show="cpdo.progresses" ng-repeat="progress in cpdo.progresses">
+
+                <span class="profession-mark Rn">
+
+                </span>
+
+                <span class="cpd-display">
+                    <span class="wrap">
+                        <span class="num">{{Math.floor(progress.completedMin / 60)}}</span>
+                        <span class="time">hrs</span>
+                    </span>
+                    <span class="wrap">
+                        <span class="num">{{progress.completedMin % 60}}</span>
+                        <span class="time">min</span>
+                    </span>
+                </span>
+
+                <div class="cpd-progress-bar">
+                    <progress class="Rn" value="{{progress.completedMin}}" max="{{progress.requiredMin}}"></progress>
+                    <div class="progress-meta">
+                        <p>{{Math.floor(progress.completedMin / 60) / (progress.requiredMin / 60) * 100}}% of {{Math.floor(progress.requiredMin / 60)}} hrs complete</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
     </div>
-</body>
+</div>
 
 <script type="text/javascript">
     $('.count').each(function() {
